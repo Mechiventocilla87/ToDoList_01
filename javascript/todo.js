@@ -37,3 +37,7 @@ function addTaskWithEnter(e) {
 
 myButton.addEventListener('click', inputValue);
 input_text.addEventListener('keyup', addTaskWithEnter);
+
+
+/////////////////////////////////////
+

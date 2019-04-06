@@ -2,48 +2,63 @@ $colorBody : #FAF1F6;
 $mygreen : #78F91A;
 $blue : #4014C2;
 
-@mixin style_hoverbutton($color){
+@mixin style_hoverbutton($color) {
     background-color: $color;
     color: white;
     transition: 0.5s;
 }
 
-body{
+body {
     margin: 0;
     background-color: $colorBody;
 }
 
-main{
+body{
+    #Layer_1{
+      position: relative;
+      z-index: 1;
+    }
+}
+
+main {
+    position: absolute;
     width: 40%;
     margin: 6% auto;
     display: flex;
     justify-content: start;
-    .col_left{
+    z-index: 2;
+    left: 50%;
+    top: 17px;
+    margin-left: -279px;
+    .col_left {
         width: 33%;
         margin-right: 3%;
-        .box_title{
+
+        .box_title {
             display: flex;
             font-size: 36px;
             color: $blue;
             font-family: 'Quicksand', sans-serif;
             border: 4px solid $blue;
             padding: 26px;
-            box-shadow: -11px -13px 0px $mygreen;
-            h4{
+            box-shadow: -18px -18px 0px $mygreen;
+
+            h4 {
                 margin: 0;
             }
-    
+
         }
 
     }
-    
+
 }
 
-main{
-    .col_right{
+main {
+    .col_right {
         width: 70%;
         font-family: 'Titillium Web', sans-serif;
-        .paragraph{
+
+        .paragraph {
             font-style: italic;
             font-size: 13.6px;
             color: $blue;
@@ -53,9 +68,9 @@ main{
     }
 }
 
-.col_right{
-    .box_input{
-        input{
+.col_right {
+    .box_input {
+        input {
             border: 2px solid $blue;
             font-family: 'Titillium Web', sans-serif;
             padding-left: 7px;
@@ -63,7 +78,8 @@ main{
             outline-color: $mygreen;
             font-size: 14px;
         }
-        button{
+
+        button {
             font-family: 'Titillium Web', sans-serif;
             border: 2px solid $blue;
             background: $blue;
@@ -71,7 +87,8 @@ main{
             font-weight: bold;
             font-size: 14px;
             width: 21%;
-            &:hover{
+
+            &:hover {
                 @include style_hoverbutton($mygreen);
                 border: 2px solid $mygreen;
             }
@@ -79,31 +96,203 @@ main{
     }
 }
 
-.col_right{
-    .taskcreated{
+.col_right {
+    .taskcreated {
         font-family: 'Titillium Web', sans-serif;
         color: $blue;
         margin-top: 3%;
-        .boxtaskcreated{
+
+        .boxtaskcreated {
             border: 2px solid $blue;
-            padding: 10px; 
+            background-color: white;
+            padding: 10px;
             font-size: 15px;
             margin-top: 1%;
-            .newbuttoncreated{
+
+            .newbuttoncreated {
                 border: 2px solid $mygreen;
                 color: $mygreen;
                 background: transparent;
                 margin-left: 8px;
                 font-size: 13px;
-                &:hover{
+
+                &:hover {
                     @include style_hoverbutton($mygreen);
                 }
-            }         
+            }
         }
-        .boxtaskcreated:first-letter{
+
+        .boxtaskcreated:first-letter {
             text-transform: uppercase;
         }
-        
+
 
     }
+
+    &::after {
+        border: 1px solid $blue;
+    }
+
+}
+
+
+
+@media(max-width:700px) {
+    body{
+        #Layer_1{
+          display: none;
+        }
+    }
+    main {
+        position: relative;
+        display: block;
+        width: 80%;
+        margin-left: 0px;
+        margin: auto;
+        left:0%;
+
+        .col_left {
+            width: 100%;
+            margin-right: 3%;
+
+            .box_title {
+                font-size: 34px;
+            }
+
+        }
+
+        .col_right {
+            width: 100%;
+
+            .paragraph {
+                font-size: 13.7px;
+            }
+
+            .box_input {
+                input {
+                    width: 65%;
+                }
+
+                button {
+                    width: 29%;
+                }
+            }
+        }
+
+    }
+}
+
+@media (min-width: 710px) {
+    main {
+        width: 60%;
+
+        .col_left {
+            .box_title {
+                font-size: 32px;
+            }
+        }
+
+        .col_right {
+            .box_input {
+                input {
+                    width: 66%;
+                    font-size: 13px;
+                }
+
+                button {
+                    width: 29%;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1020px) and (max-width: 1320px) {
+    main {
+        width: 55%;
+
+        .col_left {
+            width: 28%;
+
+            .box_title {
+                font-size: 35px;
+            }
+        }
+
+        .col_right {
+            width: 60%;
+
+            .box_input {
+                input {
+                    width: 73%;
+                }
+
+                button {
+                    width: 22%;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1324px) and (max-width: 1500px) {
+    main {
+        width: 47%;
+
+        .col_left {
+            width: 26%;
+
+            .box_title {
+                font-size: 38px;
+            }
+        }
+
+        .col_right {
+            width: 60%;
+
+            .box_input {
+                input {
+                    width: 76%;
+                }
+
+                button {
+                    width: 20%;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1520px) {
+    main {
+        width: 50%;
+        margin-left: -535px;
+        .col_left {
+            width: 24%;
+
+            .box_title {
+                font-size: 42px;
+            }
+        }
+
+        .col_right {
+            width: 60%;
+            .paragraph{
+                font-size: 16px;
+            }
+            .box_input {
+                input {
+                    width: 76%;
+                    font-size: 16px;
+
+                }
+                button {
+                    width: 20%;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
 }
